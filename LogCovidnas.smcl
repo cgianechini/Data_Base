@@ -1,0 +1,1967 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\cacia\Carreira Acadêmica\Artigos\2020\Covid\LogCovidnas.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 7 Oct 2020, 22:01:12
+{txt}
+{com}. use "C:\Users\cacia\Carreira Acadêmica\Artigos\2020\Covid\BCovidnas.dta", clear
+{txt}
+{com}. 
+. *analyzing the variables
+. describe covid lstay age nas cd ci ct
+
+              {txt}storage  display     value
+variable name   type   format      label      variable label
+{hline}
+{p 0 48}{res}{bind:covid          }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:lstay          }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:age            }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:nas            }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:cd             }{txt}{bind: long   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:ci             }{txt}{bind: long   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:ct             }{txt}{bind: long   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{txt}
+{com}. sum covid lstay nas age cd ci ct
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}covid {c |}{res}       544    .0735294    .2612437          0          1
+{txt}{space 7}lstay {c |}{res}       544    5.764706     9.55086          1         84
+{txt}{space 9}nas {c |}{res}       544    71.05515    11.37202         42        138
+{txt}{space 9}age {c |}{res}       544    70.47794    17.64212         16        104
+{txt}{space 10}cd {c |}{res}       544    5827.504     16199.3         26     247884
+{txt}{hline 13}{c +}{hline 56}
+{space 10}ci {c |}{res}       544    20081.39    30305.91       2342     256464
+{txt}{space 10}ct {c |}{res}       544    25908.97    44332.44       2441     504348
+{txt}
+{com}. by covid, sort : summarize cd, detail
+
+{txt}{hline}
+-> covid = 0
+
+                             cd
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}       41             26
+{txt} 5%    {res}      102             28
+{txt}10%    {res}      151             36       {txt}Obs         {res}        504
+{txt}25%    {res}      353             39       {txt}Sum of Wgt. {res}        504
+
+{txt}50%    {res}    928.5                      {txt}Mean          {res} 4001.849
+                        {txt}Largest       Std. Dev.     {res} 8751.304
+{txt}75%    {res}     3095          56221
+{txt}90%    {res}    10580          63789       {txt}Variance      {res} 7.66e+07
+{txt}95%    {res}    19019          66313       {txt}Skewness      {res} 4.352609
+{txt}99%    {res}    45616          73179       {txt}Kurtosis      {res} 26.08286
+
+{txt}{hline}
+-> covid = 1
+
+                             cd
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}      556            556
+{txt} 5%    {res}    724.5            718
+{txt}10%    {res}      841            731       {txt}Obs         {res}         40
+{txt}25%    {res}   1571.5            738       {txt}Sum of Wgt. {res}         40
+
+{txt}50%    {res}   8294.5                      {txt}Mean          {res} 28830.75
+                        {txt}Largest       Std. Dev.     {res} 45608.23
+{txt}75%    {res}    39191          75269
+{txt}90%    {res}  74137.5          95750       {txt}Variance      {res} 2.08e+09
+{txt}95%    {res}   103557         111364       {txt}Skewness      {res} 3.076964
+{txt}99%    {res}   247884         247884       {txt}Kurtosis      {res} 14.52623
+
+{txt}
+{com}. by covid, sort : summarize ci, detail
+
+{txt}{hline}
+-> covid = 0
+
+                             ci
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}     2549           2342
+{txt} 5%    {res}     2976           2364
+{txt}10%    {res}     4744           2365       {txt}Obs         {res}        504
+{txt}25%    {res}     5633           2365       {txt}Sum of Wgt. {res}        504
+
+{txt}50%    {res}     8450                      {txt}Mean          {res} 16333.33
+                        {txt}Largest       Std. Dev.     {res} 21437.02
+{txt}75%    {res}    16740         127955
+{txt}90%    {res}    36271         133869       {txt}Variance      {res} 4.60e+08
+{txt}95%    {res}    58353         181724       {txt}Skewness      {res} 3.961449
+{txt}99%    {res}   103008         195886       {txt}Kurtosis      {res} 24.39465
+
+{txt}{hline}
+-> covid = 1
+
+                             ci
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}     5633           5633
+{txt} 5%    {res}   7176.5           7096
+{txt}10%    {res}   7909.5           7257       {txt}Obs         {res}         40
+{txt}25%    {res}  14086.5           7369       {txt}Sum of Wgt. {res}         40
+
+{txt}50%    {res}  44130.5                      {txt}Mean          {res} 67306.88
+                        {txt}Largest       Std. Dev.     {res} 66269.82
+{txt}75%    {res}   103033         167793
+{txt}90%    {res} 166732.5         181694       {txt}Variance      {res} 4.39e+09
+{txt}95%    {res} 185199.5         188705       {txt}Skewness      {res} 1.005846
+{txt}99%    {res}   256464         256464       {txt}Kurtosis      {res} 3.048953
+
+{txt}
+{com}. by covid, sort : summarize ct, detail
+
+{txt}{hline}
+-> covid = 0
+
+                             ct
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}     2828           2441
+{txt} 5%    {res}     3410           2467
+{txt}10%    {res}     5058           2474       {txt}Obs         {res}        504
+{txt}25%    {res}   6436.5           2720       {txt}Sum of Wgt. {res}        504
+
+{txt}50%    {res}     9935                      {txt}Mean          {res} 20335.26
+                        {txt}Largest       Std. Dev.     {res} 28578.62
+{txt}75%    {res}    19733         166065
+{txt}90%    {res}    49205         170874       {txt}Variance      {res} 8.17e+08
+{txt}95%    {res}    78193         233412       {txt}Skewness      {res} 3.732425
+{txt}99%    {res}   148624         245512       {txt}Kurtosis      {res} 21.43911
+
+{txt}{hline}
+-> covid = 1
+
+                             ct
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}     6371           6371
+{txt} 5%    {res}   8492.5           8313
+{txt}10%    {res}   9876.5           8672       {txt}Obs         {res}         40
+{txt}25%    {res}    16798           9181       {txt}Sum of Wgt. {res}         40
+
+{txt}50%    {res}  51752.5                      {txt}Mean          {res} 96137.68
+                        {txt}Largest       Std. Dev.     {res} 106630.7
+{txt}75%    {res}   148398         232300
+{txt}90%    {res} 229023.5         263660       {txt}Variance      {res} 1.14e+10
+{txt}95%    {res}   270552         277444       {txt}Skewness      {res} 1.665968
+{txt}99%    {res}   504348         504348       {txt}Kurtosis      {res} 6.431284
+
+{txt}
+{com}. 
+. *analyzing the variables between covid and non-covid groups
+. by covid, sort: summarize lstay, detail
+
+{txt}{hline}
+-> covid = 0
+
+                            lstay
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}        1              1
+{txt} 5%    {res}        1              1
+{txt}10%    {res}        1              1       {txt}Obs         {res}        504
+{txt}25%    {res}        1              1       {txt}Sum of Wgt. {res}        504
+
+{txt}50%    {res}        2                      {txt}Mean          {res} 4.680556
+                        {txt}Largest       Std. Dev.     {res} 7.059189
+{txt}75%    {res}        5             41
+{txt}90%    {res}       11             41       {txt}Variance      {res} 49.83215
+{txt}95%    {res}       17             61       {txt}Skewness      {res} 4.329715
+{txt}99%    {res}       35             70       {txt}Kurtosis      {res} 29.50574
+
+{txt}{hline}
+-> covid = 1
+
+                            lstay
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}        1              1
+{txt} 5%    {res}      1.5              1
+{txt}10%    {res}        2              2       {txt}Obs         {res}         40
+{txt}25%    {res}      3.5              2       {txt}Sum of Wgt. {res}         40
+
+{txt}50%    {res}        7                      {txt}Mean          {res}   19.425
+                        {txt}Largest       Std. Dev.     {res} 20.51252
+{txt}75%    {res}       31             54
+{txt}90%    {res}       52             58       {txt}Variance      {res} 420.7635
+{txt}95%    {res}     58.5             59       {txt}Skewness      {res} 1.209386
+{txt}99%    {res}       84             84       {txt}Kurtosis      {res} 3.898542
+
+{txt}
+{com}. by covid, sort: summarize age
+
+{txt}{hline}
+-> covid = 0
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}age {c |}{res}       504    70.73016    17.81456         16        104
+
+{txt}{hline}
+-> covid = 1
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}age {c |}{res}        40        67.3    15.13901         37         94
+
+{txt}
+{com}. by covid, sort: summarize nas
+
+{txt}{hline}
+-> covid = 0
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}nas {c |}{res}       504    70.65476    11.25327         42        138
+
+{txt}{hline}
+-> covid = 1
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}nas {c |}{res}        40        76.1    11.79483         53        102
+
+{txt}
+{com}. by covid, sort: summarize cd
+
+{txt}{hline}
+-> covid = 0
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 10}cd {c |}{res}       504    4001.849    8751.304         26      73179
+
+{txt}{hline}
+-> covid = 1
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 10}cd {c |}{res}        40    28830.75    45608.23        556     247884
+
+{txt}
+{com}. by covid, sort: summarize ci
+
+{txt}{hline}
+-> covid = 0
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 10}ci {c |}{res}       504    16333.33    21437.02       2342     195886
+
+{txt}{hline}
+-> covid = 1
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 10}ci {c |}{res}        40    67306.88    66269.82       5633     256464
+
+{txt}
+{com}. by covid, sort: summarize ct
+
+{txt}{hline}
+-> covid = 0
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 10}ct {c |}{res}       504    20335.26    28578.62       2441     245512
+
+{txt}{hline}
+-> covid = 1
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 10}ct {c |}{res}        40    96137.68    106630.7       6371     504348
+
+{txt}
+{com}. 
+. *analyzing the sample distribution and applying SWilk Test 
+. histogram lstay, by(covid) normal
+{res}{txt}
+{com}. by covid, sort: swilk lstay
+
+{txt}{hline}
+-> covid = 0
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+       lstay {c |}{res}    504    0.60511    133.796    11.774    0.00000
+
+{txt}{hline}
+-> covid = 1
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+       lstay {c |}{res}     40    0.83193      6.643     3.985    0.00003
+{txt}
+{com}. histogram age, by(covid) normal
+{res}{txt}
+{com}. by covid, sort: swilk age
+
+{txt}{hline}
+-> covid = 0
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+         age {c |}{res}    504    0.94036     20.205     7.228    0.00000
+
+{txt}{hline}
+-> covid = 1
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+         age {c |}{res}     40    0.97174      1.117     0.233    0.40803
+{txt}
+{com}. histogram nas, by(covid) normal
+{res}{txt}
+{com}. by covid, sort: swilk nas
+
+{txt}{hline}
+-> covid = 0
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+         nas {c |}{res}    504    0.97732      7.683     4.903    0.00000
+
+{txt}{hline}
+-> covid = 1
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+         nas {c |}{res}     40    0.97176      1.116     0.231    0.40851
+{txt}
+{com}. histogram cd, by(covid) normal
+{res}{txt}
+{com}. by covid, sort: swilk cd
+
+{txt}{hline}
+-> covid = 0
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          cd {c |}{res}    504    0.46594    180.949    12.500    0.00000
+
+{txt}{hline}
+-> covid = 1
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          cd {c |}{res}     40    0.63477     14.437     5.618    0.00000
+{txt}
+{com}. histogram ci, by(covid) normal
+{res}{txt}
+{com}. by covid, sort: swilk ci
+
+{txt}{hline}
+-> covid = 0
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          ci {c |}{res}    504    0.56713    146.662    11.995    0.00000
+
+{txt}{hline}
+-> covid = 1
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          ci {c |}{res}     40    0.83776      6.413     3.911    0.00005
+{txt}
+{com}. histogram ct, by(covid) normal
+{res}{txt}
+{com}. by covid, sort: swilk ct
+
+{txt}{hline}
+-> covid = 0
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          ct {c |}{res}    504    0.56463    147.510    12.009    0.00000
+
+{txt}{hline}
+-> covid = 1
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          ct {c |}{res}     40    0.79291      8.186     4.424    0.00000
+{txt}
+{com}. 
+. *Median Test: MANN-WHITNEY
+. ranksum lstay, by(covid)porder
+
+{txt}Two-sample Wilcoxon rank-sum (Mann-Whitney) test
+
+       covid {c |}      obs    rank sum    expected
+{hline 13}{c +}{hline 33}
+           0 {c |}{res}{col 17}    504{col 26}    131604{col 38}    137340
+           {txt}1 {c |}{res}{col 17}     40{col 26}     16636{col 38}     10900
+{txt}{hline 13}{c +}{hline 33}
+    combined {c |}{res}{col 17}    544{col 26}    148240{col 38}    148240
+
+{txt}unadjusted variance{col 22}{res} 915600.00
+{txt}adjustment for ties{col 22}{res} -39278.36
+{txt}{col 22}{hline 10}
+adjusted variance{col 22}{res} 876321.64
+
+{txt}Ho: lstay(covid==0) = lstay(covid==1)
+{col 14}z = {res} -6.127
+{txt}{col 5}Prob > |z| = {res}  0.0000
+
+{txt}P{lstay(covid==0) > lstay(covid==1)} = {res}0.215
+{txt}
+{com}. ranksum age, by(covid)porder
+
+{txt}Two-sample Wilcoxon rank-sum (Mann-Whitney) test
+
+       covid {c |}      obs    rank sum    expected
+{hline 13}{c +}{hline 33}
+           0 {c |}{res}{col 17}    504{col 26}  138998.5{col 38}    137340
+           {txt}1 {c |}{res}{col 17}     40{col 26}    9241.5{col 38}     10900
+{txt}{hline 13}{c +}{hline 33}
+    combined {c |}{res}{col 17}    544{col 26}    148240{col 38}    148240
+
+{txt}unadjusted variance{col 22}{res} 915600.00
+{txt}adjustment for ties{col 22}{res}   -469.82
+{txt}{col 22}{hline 10}
+adjusted variance{col 22}{res} 915130.18
+
+{txt}Ho: age(covid==0) = age(covid==1)
+{col 14}z = {res}  1.734
+{txt}{col 5}Prob > |z| = {res}  0.0830
+
+{txt}P{age(covid==0) > age(covid==1)} = {res}0.582
+{txt}
+{com}. ranksum nas, by(covid)porder
+
+{txt}Two-sample Wilcoxon rank-sum (Mann-Whitney) test
+
+       covid {c |}      obs    rank sum    expected
+{hline 13}{c +}{hline 33}
+           0 {c |}{res}{col 17}    504{col 26}    134588{col 38}    137340
+           {txt}1 {c |}{res}{col 17}     40{col 26}     13652{col 38}     10900
+{txt}{hline 13}{c +}{hline 33}
+    combined {c |}{res}{col 17}    544{col 26}    148240{col 38}    148240
+
+{txt}unadjusted variance{col 22}{res} 915600.00
+{txt}adjustment for ties{col 22}{res}   -948.14
+{txt}{col 22}{hline 10}
+adjusted variance{col 22}{res} 914651.86
+
+{txt}Ho: nas(covid==0) = nas(covid==1)
+{col 14}z = {res} -2.878
+{txt}{col 5}Prob > |z| = {res}  0.0040
+
+{txt}P{nas(covid==0) > nas(covid==1)} = {res}0.363
+{txt}
+{com}. ranksum cd, by(covid)porder
+
+{txt}Two-sample Wilcoxon rank-sum (Mann-Whitney) test
+
+       covid {c |}      obs    rank sum    expected
+{hline 13}{c +}{hline 33}
+           0 {c |}{res}{col 17}    504{col 26}  131232.5{col 38}    137340
+           {txt}1 {c |}{res}{col 17}     40{col 26}   17007.5{col 38}     10900
+{txt}{hline 13}{c +}{hline 33}
+    combined {c |}{res}{col 17}    544{col 26}    148240{col 38}    148240
+
+{txt}unadjusted variance{col 22}{res} 915600.00
+{txt}adjustment for ties{col 22}{res}     -1.95
+{txt}{col 22}{hline 10}
+adjusted variance{col 22}{res} 915598.05
+
+{txt}Ho: cd(covid==0) = cd(covid==1)
+{col 14}z = {res} -6.383
+{txt}{col 5}Prob > |z| = {res}  0.0000
+
+{txt}P{cd(covid==0) > cd(covid==1)} = {res}0.197
+{txt}
+{com}. ranksum ci, by(covid)porder
+
+{txt}Two-sample Wilcoxon rank-sum (Mann-Whitney) test
+
+       covid {c |}      obs    rank sum    expected
+{hline 13}{c +}{hline 33}
+           0 {c |}{res}{col 17}    504{col 26}    131103{col 38}    137340
+           {txt}1 {c |}{res}{col 17}     40{col 26}     17137{col 38}     10900
+{txt}{hline 13}{c +}{hline 33}
+    combined {c |}{res}{col 17}    544{col 26}    148240{col 38}    148240
+
+{txt}unadjusted variance{col 22}{res} 915600.00
+{txt}adjustment for ties{col 22}{res}   -807.51
+{txt}{col 22}{hline 10}
+adjusted variance{col 22}{res} 914792.49
+
+{txt}Ho: ci(covid==0) = ci(covid==1)
+{col 14}z = {res} -6.521
+{txt}{col 5}Prob > |z| = {res}  0.0000
+
+{txt}P{ci(covid==0) > ci(covid==1)} = {res}0.191
+{txt}
+{com}. ranksum ct, by(covid)porder
+
+{txt}Two-sample Wilcoxon rank-sum (Mann-Whitney) test
+
+       covid {c |}      obs    rank sum    expected
+{hline 13}{c +}{hline 33}
+           0 {c |}{res}{col 17}    504{col 26}  131071.5{col 38}    137340
+           {txt}1 {c |}{res}{col 17}     40{col 26}   17168.5{col 38}     10900
+{txt}{hline 13}{c +}{hline 33}
+    combined {c |}{res}{col 17}    544{col 26}    148240{col 38}    148240
+
+{txt}unadjusted variance{col 22}{res} 915600.00
+{txt}adjustment for ties{col 22}{res}     -0.31
+{txt}{col 22}{hline 10}
+adjusted variance{col 22}{res} 915599.69
+
+{txt}Ho: ct(covid==0) = ct(covid==1)
+{col 14}z = {res} -6.551
+{txt}{col 5}Prob > |z| = {res}  0.0000
+
+{txt}P{ct(covid==0) > ct(covid==1)} = {res}0.189
+{txt}
+{com}. 
+. *Variance Test: KOLMOGOROV SMIRNOV
+. ksmirnov lstay, by(covid)
+
+{txt}Two-sample Kolmogorov-Smirnov test for equality of distribution functions
+
+ Smaller group       D       P-value  Corrected
+ {hline 46}
+ 0:                {res}  0.4175    0.000
+{txt} 1:                {res}  0.0000    1.000
+{txt} Combined K-S:     {res}  0.4175    0.000      0.000
+
+{txt}Note: ties exist in combined dataset;
+      there are 44 unique values out of 544 observations.
+
+{com}. ksmirnov age, by(covid)
+
+{txt}Two-sample Kolmogorov-Smirnov test for equality of distribution functions
+
+ Smaller group       D       P-value  Corrected
+ {hline 46}
+ 0:                {res}  0.0536    0.808
+{txt} 1:                {res} -0.1885    0.072
+{txt} Combined K-S:     {res}  0.1885    0.144      0.105
+
+{txt}Note: ties exist in combined dataset;
+      there are 81 unique values out of 544 observations.
+
+{com}. ksmirnov nas, by(covid)
+
+{txt}Two-sample Kolmogorov-Smirnov test for equality of distribution functions
+
+ Smaller group       D       P-value  Corrected
+ {hline 46}
+ 0:                {res}  0.2480    0.010
+{txt} 1:                {res} -0.0060    0.997
+{txt} Combined K-S:     {res}  0.2480    0.021      0.013
+
+{txt}Note: ties exist in combined dataset;
+      there are 60 unique values out of 544 observations.
+
+{com}. ksmirnov cd, by(covid)
+
+{txt}Two-sample Kolmogorov-Smirnov test for equality of distribution functions
+
+ Smaller group       D       P-value  Corrected
+ {hline 46}
+ 0:                {res}  0.4262    0.000
+{txt} 1:                {res}  0.0000    1.000
+{txt} Combined K-S:     {res}  0.4262    0.000      0.000
+
+{txt}Note: ties exist in combined dataset;
+      there are 500 unique values out of 544 observations.
+
+{com}. ksmirnov ci, by(covid)
+
+{txt}Two-sample Kolmogorov-Smirnov test for equality of distribution functions
+
+ Smaller group       D       P-value  Corrected
+ {hline 46}
+ 0:                {res}  0.4687    0.000
+{txt} 1:                {res}  0.0000    1.000
+{txt} Combined K-S:     {res}  0.4687    0.000      0.000
+
+{txt}Note: ties exist in combined dataset;
+      there are 265 unique values out of 544 observations.
+
+{com}. ksmirnov ct, by(covid)
+
+{txt}Two-sample Kolmogorov-Smirnov test for equality of distribution functions
+
+ Smaller group       D       P-value  Corrected
+ {hline 46}
+ 0:                {res}  0.4825    0.000
+{txt} 1:                {res}  0.0000    1.000
+{txt} Combined K-S:     {res}  0.4825    0.000      0.000
+
+{txt}Note: ties exist in combined dataset;
+      there are 535 unique values out of 544 observations.
+
+{com}. 
+. * Analyzing the sample costs patients per day
+. clear
+{txt}
+{com}. use "C:\Users\cacia\Carreira Acadêmica\Artigos\2020\Covid\bcovidcostsday.dta", clear
+{txt}
+{com}. 
+. describe covid cd ci ct
+
+              {txt}storage  display     value
+variable name   type   format      label      variable label
+{hline}
+{p 0 48}{res}{bind:covid          }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:cd             }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:ci             }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:ct             }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{txt}
+{com}. sum cd ci ct
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 10}cd {c |}{res}       544     686.671    804.9535         26       9147
+{txt}{space 10}ci {c |}{res}       544    4175.097    1365.744        650      10051
+{txt}{space 10}ct {c |}{res}       544    4861.774    1547.012        822      12687
+{txt}
+{com}. by covid, sort : summarize cd, detail
+
+{txt}{hline}
+-> covid = 0
+
+                             cd
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}       40             26
+{txt} 5%    {res}       73             28
+{txt}10%    {res}      106             34       {txt}Obs         {res}        504
+{txt}25%    {res}      207             36       {txt}Sum of Wgt. {res}        504
+
+{txt}50%    {res}      448                      {txt}Mean          {res} 655.3512
+                        {txt}Largest       Std. Dev.     {res} 804.6762
+{txt}75%    {res}    855.5           5318
+{txt}90%    {res}     1240           6122       {txt}Variance      {res} 647503.8
+{txt}95%    {res}     1692           6631       {txt}Skewness      {res} 4.960737
+{txt}99%    {res}     4104           9147       {txt}Kurtosis      {res} 40.33433
+
+{txt}{hline}
+-> covid = 1
+
+                             cd
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}      239            239
+{txt} 5%    {res}      297            288
+{txt}10%    {res}      344            306       {txt}Obs         {res}         40
+{txt}25%    {res}    535.5            322       {txt}Sum of Wgt. {res}         40
+
+{txt}50%    {res}    972.5                      {txt}Mean          {res}   1081.3
+                        {txt}Largest       Std. Dev.     {res} 705.6338
+{txt}75%    {res}   1421.5           2227
+{txt}90%    {res}   2220.5           2234       {txt}Variance      {res}   497919
+{txt}95%    {res}     2577           2920       {txt}Skewness      {res}  1.03666
+{txt}99%    {res}     2951           2951       {txt}Kurtosis      {res} 3.440018
+
+{txt}
+{com}. by covid, sort : summarize ci, detail
+
+{txt}{hline}
+-> covid = 0
+
+                             ci
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}     1408            650
+{txt} 5%    {res}     2689           1183
+{txt}10%    {res}     2817           1263       {txt}Obs         {res}        504
+{txt}25%    {res}   3181.5           1275       {txt}Sum of Wgt. {res}        504
+
+{txt}50%    {res}     3901                      {txt}Mean          {res} 4186.276
+                        {txt}Largest       Std. Dev.     {res} 1356.048
+{txt}75%    {res}     5105           8560
+{txt}90%    {res}     5966           9751       {txt}Variance      {res}  1838865
+{txt}95%    {res}     6501           9751       {txt}Skewness      {res}  .888717
+{txt}99%    {res}     8370          10051       {txt}Kurtosis      {res} 4.342462
+
+{txt}{hline}
+-> covid = 1
+
+                             ci
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}     2790           2790
+{txt} 5%    {res}     2831           2817
+{txt}10%    {res}     2875           2845       {txt}Obs         {res}         40
+{txt}25%    {res}     3036           2856       {txt}Sum of Wgt. {res}         40
+
+{txt}50%    {res}     3558                      {txt}Mean          {res}  4034.25
+                        {txt}Largest       Std. Dev.     {res}  1493.82
+{txt}75%    {res}     4417           6564
+{txt}90%    {res}     5946           7096       {txt}Variance      {res}  2231499
+{txt}95%    {res}     7123           7150       {txt}Skewness      {res} 2.130924
+{txt}99%    {res}    10016          10016       {txt}Kurtosis      {res} 8.090087
+
+{txt}
+{com}. by covid, sort : summarize ct, detail
+
+{txt}{hline}
+-> covid = 0
+
+                             ct
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}     1739            822
+{txt} 5%    {res}     2916           1285
+{txt}10%    {res}     3222           1452       {txt}Obs         {res}        504
+{txt}25%    {res}     3783           1658       {txt}Sum of Wgt. {res}        504
+
+{txt}50%    {res}   4559.5                      {txt}Mean          {res} 4841.635
+                        {txt}Largest       Std. Dev.     {res} 1547.829
+{txt}75%    {res}     5750          10420
+{txt}90%    {res}     6762          10532       {txt}Variance      {res}  2395774
+{txt}95%    {res}     7373          11175       {txt}Skewness      {res} 1.019841
+{txt}99%    {res}     9976          12687       {txt}Kurtosis      {res} 5.276758
+
+{txt}{hline}
+-> covid = 1
+
+                             ct
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}     3186           3186
+{txt} 5%    {res}     3386           3307
+{txt}10%    {res}     3527           3465       {txt}Obs         {res}         40
+{txt}25%    {res}     4111           3526       {txt}Sum of Wgt. {res}         40
+
+{txt}50%    {res}     4886                      {txt}Mean          {res} 5115.525
+                        {txt}Largest       Std. Dev.     {res}  1533.21
+{txt}75%    {res}   5623.5           7831
+{txt}90%    {res}   7235.5           8044       {txt}Variance      {res}  2350732
+{txt}95%    {res}     8358           8672       {txt}Skewness      {res} 1.585134
+{txt}99%    {res}    10572          10572       {txt}Kurtosis      {res}  5.90294
+
+{txt}
+{com}. histogram cd, by(covid) normal
+{res}{txt}
+{com}. histogram ci, by(covid) normal
+{res}{txt}
+{com}. histogram ct, by(covid) normal
+{res}{txt}
+{com}. by covid, sort: swilk cd
+
+{txt}{hline}
+-> covid = 0
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          cd {c |}{res}    504    0.59505    137.205    11.835    0.00000
+
+{txt}{hline}
+-> covid = 1
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          cd {c |}{res}     40    0.89531      4.138     2.989    0.00140
+{txt}
+{com}. by covid, sort: swilk ci
+
+{txt}{hline}
+-> covid = 0
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          ci {c |}{res}    504    0.94132     19.883     7.190    0.00000
+
+{txt}{hline}
+-> covid = 1
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          ci {c |}{res}     40    0.75639      9.629     4.766    0.00000
+{txt}
+{com}. by covid, sort: swilk ct
+
+{txt}{hline}
+-> covid = 0
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          ct {c |}{res}    504    0.94810     17.583     6.894    0.00000
+
+{txt}{hline}
+-> covid = 1
+
+                   Shapiro-Wilk W test for normal data
+
+    Variable {c |}    Obs{col 29}W{col 41}V{col 51}z       Prob>z
+{hline 13}{c +}{hline 50}
+          ct {c |}{res}     40    0.86086      5.500     3.588    0.00017
+{txt}
+{com}. ranksum cd, by(covid)porder
+
+{txt}Two-sample Wilcoxon rank-sum (Mann-Whitney) test
+
+       covid {c |}      obs    rank sum    expected
+{hline 13}{c +}{hline 33}
+           0 {c |}{res}{col 17}    504{col 26}    132674{col 38}    137340
+           {txt}1 {c |}{res}{col 17}     40{col 26}     15566{col 38}     10900
+{txt}{hline 13}{c +}{hline 33}
+    combined {c |}{res}{col 17}    544{col 26}    148240{col 38}    148240
+
+{txt}unadjusted variance{col 22}{res} 915600.00
+{txt}adjustment for ties{col 22}{res}     -4.78
+{txt}{col 22}{hline 10}
+adjusted variance{col 22}{res} 915595.22
+
+{txt}Ho: cd(covid==0) = cd(covid==1)
+{col 14}z = {res} -4.876
+{txt}{col 5}Prob > |z| = {res}  0.0000
+
+{txt}P{cd(covid==0) > cd(covid==1)} = {res}0.269
+{txt}
+{com}. ranksum ci, by(covid)porder
+
+{txt}Two-sample Wilcoxon rank-sum (Mann-Whitney) test
+
+       covid {c |}      obs    rank sum    expected
+{hline 13}{c +}{hline 33}
+           0 {c |}{res}{col 17}    504{col 26}    138498{col 38}    137340
+           {txt}1 {c |}{res}{col 17}     40{col 26}      9742{col 38}     10900
+{txt}{hline 13}{c +}{hline 33}
+    combined {c |}{res}{col 17}    544{col 26}    148240{col 38}    148240
+
+{txt}unadjusted variance{col 22}{res} 915600.00
+{txt}adjustment for ties{col 22}{res}   -581.30
+{txt}{col 22}{hline 10}
+adjusted variance{col 22}{res} 915018.70
+
+{txt}Ho: ci(covid==0) = ci(covid==1)
+{col 14}z = {res}  1.211
+{txt}{col 5}Prob > |z| = {res}  0.2261
+
+{txt}P{ci(covid==0) > ci(covid==1)} = {res}0.557
+{txt}
+{com}. ranksum ct, by(covid)porder
+
+{txt}Two-sample Wilcoxon rank-sum (Mann-Whitney) test
+
+       covid {c |}      obs    rank sum    expected
+{hline 13}{c +}{hline 33}
+           0 {c |}{res}{col 17}    504{col 26}    136348{col 38}    137340
+           {txt}1 {c |}{res}{col 17}     40{col 26}     11892{col 38}     10900
+{txt}{hline 13}{c +}{hline 33}
+    combined {c |}{res}{col 17}    544{col 26}    148240{col 38}    148240
+
+{txt}unadjusted variance{col 22}{res} 915600.00
+{txt}adjustment for ties{col 22}{res}     -1.19
+{txt}{col 22}{hline 10}
+adjusted variance{col 22}{res} 915598.81
+
+{txt}Ho: ct(covid==0) = ct(covid==1)
+{col 14}z = {res} -1.037
+{txt}{col 5}Prob > |z| = {res}  0.2999
+
+{txt}P{ct(covid==0) > ct(covid==1)} = {res}0.451
+{txt}
+{com}. ksmirnov cd, by(covid)
+
+{txt}Two-sample Kolmogorov-Smirnov test for equality of distribution functions
+
+ Smaller group       D       P-value  Corrected
+ {hline 46}
+ 0:                {res}  0.3698    0.000
+{txt} 1:                {res} -0.0159    0.981
+{txt} Combined K-S:     {res}  0.3698    0.000      0.000
+
+{txt}Note: ties exist in combined dataset;
+      there are 446 unique values out of 544 observations.
+
+{com}. ksmirnov ci, by(covid)
+
+{txt}Two-sample Kolmogorov-Smirnov test for equality of distribution functions
+
+ Smaller group       D       P-value  Corrected
+ {hline 46}
+ 0:                {res}  0.0869    0.571
+{txt} 1:                {res} -0.1480    0.197
+{txt} Combined K-S:     {res}  0.1480    0.391      0.320
+
+{txt}Note: ties exist in combined dataset;
+      there are 262 unique values out of 544 observations.
+
+{com}. ksmirnov ct, by(covid)
+
+{txt}Two-sample Kolmogorov-Smirnov test for equality of distribution functions
+
+ Smaller group       D       P-value  Corrected
+ {hline 46}
+ 0:                {res}  0.1548    0.169
+{txt} 1:                {res} -0.0675    0.714
+{txt} Combined K-S:     {res}  0.1548    0.337      0.270
+
+{txt}Note: ties exist in combined dataset;
+      there are 509 unique values out of 544 observations.
+
+{com}. 
+. *Analyzing the sample direct costs complements (Drugs and Materials)
+. clear
+{txt}
+{com}. use "C:\Users\cacia\Carreira Acadêmica\Artigos\2020\Covid\bcovidcostscomp.dta", clear
+{txt}
+{com}. 
+. describe covid qtdmed cmmed qtdmat cmmat
+
+              {txt}storage  display     value
+variable name   type   format      label      variable label
+{hline}
+{p 0 48}{res}{bind:covid          }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:qtdmed         }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:cmmed          }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:qtdmat         }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:cmmat          }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{txt}
+{com}. sum covid qtdmed cmmed qtdmat cmmat
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}covid {c |}{res}       544    .0735294    .2612437          0          1
+{txt}{space 6}qtdmed {c |}{res}       544    289.2886    551.1173          3       4613
+{txt}{space 7}cmmed {c |}{res}       544    10.78493    14.24644          1        174
+{txt}{space 6}qtdmat {c |}{res}       544     323.443    539.1133          3       5459
+{txt}{space 7}cmmat {c |}{res}       544    2.632353     2.20182          0         19
+{txt}
+{com}. by covid, sort : summarize qtdmed
+
+{txt}{hline}
+-> covid = 0
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 6}qtdmed {c |}{res}       504    223.4147    367.3519          3       3269
+
+{txt}{hline}
+-> covid = 1
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 6}qtdmed {c |}{res}        40      1119.3    1313.668         39       4613
+
+{txt}
+{com}. by covid, sort : summarize cmmed
+
+{txt}{hline}
+-> covid = 0
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}cmmed {c |}{res}       504    10.29167     14.4269          1        174
+
+{txt}{hline}
+-> covid = 1
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}cmmed {c |}{res}        40          17     9.93311          7         49
+
+{txt}
+{com}. by covid, sort : summarize qtdmat
+
+{txt}{hline}
+-> covid = 0
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 6}qtdmat {c |}{res}       504    260.3591    367.4906          3       2990
+
+{txt}{hline}
+-> covid = 1
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 6}qtdmat {c |}{res}        40      1118.3    1267.056         55       5459
+
+{txt}
+{com}. by covid, sort : summarize cmmat
+
+{txt}{hline}
+-> covid = 0
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}cmmat {c |}{res}       504    2.553571     2.19368          0         19
+
+{txt}{hline}
+-> covid = 1
+
+    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}cmmat {c |}{res}        40       3.625    2.083974          1         13
+
+{txt}
+{com}. histogram qtdmed, by(covid) normal
+{res}{txt}
+{com}. histogram cmmed, by(covid) normal
+{res}{txt}
+{com}. histogram qtdmat, by(covid) normal
+{res}{txt}
+{com}. histogram cmmat, by(covid) normal
+{res}{txt}
+{com}. 
+. * Econometrics model - MQO/OLS
+. clear
+{txt}
+{com}. use "C:\Users\cacia\Carreira Acadêmica\Artigos\2020\Covid\BCovidnas.dta", clear
+{txt}
+{com}. 
+. *Correlate Matrix 
+. pwcorr lstay age nas, star(0.05) sig
+
+             {txt}{c |}    lstay      age      nas
+{hline 13}{c +}{hline 27}
+       lstay {c |} {res}  1.0000 
+             {txt}{c |}
+             {c |}
+         age {c |} {res}  0.0567   1.0000 
+             {txt}{c |}{res}   0.1868
+             {txt}{c |}
+         nas {c |} {res}  0.3215*  0.1130*  1.0000 
+             {txt}{c |}{res}   0.0000   0.0083
+             {txt}{c |}
+
+{com}. 
+. *OLS#1 = Dependent variable Direct Costs
+. estimates clear
+{txt}
+{com}. reg cd covid age lstay nas
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}     544
+{txt}{hline 13}{char +}{hline 30}           F(  4,   539) ={res}  265.68
+    {txt}   Model {char |} {res} 9.4542e+10     4  2.3635e+10           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 4.7951e+10   539  88962905.9           {txt}R-squared     = {res} 0.6635
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.6610
+    {txt}   Total {char |} {res} 1.4249e+11   543   262417208           {txt}Root MSE      = {res}   9432
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          cd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2} 5267.477{col 26}{space 2} 1698.728{col 37}{space 1}    3.10{col 46}{space 3}0.002{col 54}{space 4} 1930.539{col 67}{space 3} 8604.416
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-53.31677{col 26}{space 2} 23.17174{col 37}{space 1}   -2.30{col 46}{space 3}0.022{col 54}{space 4}-98.83476{col 67}{space 3}-7.798775
+{txt}{space 7}lstay {c |}{col 14}{res}{space 2} 1281.231{col 26}{space 2} 48.59052{col 37}{space 1}   26.37{col 46}{space 3}0.000{col 54}{space 4} 1185.781{col 67}{space 3} 1376.681
+{txt}{space 9}nas {c |}{col 14}{res}{space 2} 89.52701{col 26}{space 2} 37.77937{col 37}{space 1}    2.37{col 46}{space 3}0.018{col 54}{space 4} 15.31417{col 67}{space 3} 163.7399
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-4549.431{col 26}{space 2} 2961.564{col 37}{space 1}   -1.54{col 46}{space 3}0.125{col 54}{space 4}-10367.05{col 67}{space 3} 1268.192
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict residualcd, r
+{txt}
+{com}. predict yhatcd, xb
+{txt}
+{com}. twoway lfit cd yhatcd|| scatter cd yhatcd, ytitle(cd) xtitle(yhat)
+{res}{txt}
+{com}. histogram residualcd, kdensity normal
+{txt}(bin={res}23{txt}, start={res}-50983.43{txt}, width={res}8115.145{txt})
+{res}{txt}
+{com}. 
+. * VIF Test: Checking multicollinearity in the model
+. vif
+
+{txt}    Variable {c |}       VIF       1/VIF  
+{hline 13}{c +}{hline 22}
+{space 7}lstay {c |} {res}     1.31    0.760713
+{txt}{space 7}covid {c |} {res}     1.20    0.831897
+{txt}{space 9}nas {c |} {res}     1.13    0.887614
+{txt}{space 9}age {c |} {res}     1.02    0.980370
+{txt}{hline 13}{c +}{hline 22}
+    Mean VIF {c |} {res}     1.17
+{txt}
+{com}.   
+. * Breusch-Pagan / Cook-Weisberg test for heteroskedasticity
+. estat hettest
+
+{txt}Breusch-Pagan / Cook-Weisberg test for heteroskedasticity 
+         Ho: Constant variance
+{p 9 20}Variables: fitted values of cd
+
+{col 10}chi2({res}1{txt}){col 23}={res}  5304.37
+{txt}{col 10}Prob > chi2{col 23}={res}   0.0000
+{txt}
+{com}.  
+. * Ramsey RESET test using powers of the fitted values of direct costs
+. estat ovtest 
+
+{txt}Ramsey RESET test using powers of the fitted values of cd
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}   124.19
+                  {txt}Prob > F =      {res}0.0000
+{txt}
+{com}. 
+. * Analyzing Outliers
+. lvr2plot, mlabel (covid)
+{res}{txt}
+{com}. predict residualcd1 if e(sample), resid
+{txt}
+{com}. predict cookcd if e(sample) , cooksd
+{txt}
+{com}. predict ecd if e(sample), resid
+{txt}
+{com}. list cd ecd cookcd if cook>4/544
+{txt}
+     {c TLC}{hline 8}{c -}{hline 11}{c -}{hline 10}{c TRC}
+     {c |} {res}    cd         ecd     cookcd {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+  1. {c |} {res} 73179    61713.77   .1172017 {txt}{c |}
+  2. {c |} {res} 63789   -12587.76   .0345333 {txt}{c |}
+100. {c |} {res} 95750    20786.89   .0598063 {txt}{c |}
+130. {c |} {res} 32904   -19018.44   .0312953 {txt}{c |}
+132. {c |} {res} 36901   -15854.65   .0216871 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+141. {c |} {res}111364    41883.92   .2094828 {txt}{c |}
+151. {c |} {res} 23462   -23356.62   .0410356 {txt}{c |}
+153. {c |} {res} 43596   -35219.19   .2127414 {txt}{c |}
+160. {c |} {res} 41481   -14767.35   .0204549 {txt}{c |}
+163. {c |} {res}247884    135664.9   7.092043 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+167. {c |} {res} 26731   -10876.91   .0074821 {txt}{c |}
+169. {c |} {res} 16764   -26805.69   .0435297 {txt}{c |}
+174. {c |} {res} 66313    54468.17   .0436212 {txt}{c |}
+176. {c |} {res} 73006    37373.46   .1000251 {txt}{c |}
+184. {c |} {res} 75269    27576.21   .0548235 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+188. {c |} {res}  6911    -20243.8   .0102363 {txt}{c |}
+191. {c |} {res} 58239   -19830.12    .063129 {txt}{c |}
+197. {c |} {res} 56221    11960.56   .0090426 {txt}{c |}
+211. {c |} {res} 37526   -50983.43   .8507603 {txt}{c |}
+220. {c |} {res} 30912   -20108.71   .0331678 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+227. {c |} {res} 13512   -19034.02   .0227454 {txt}{c |}
+252. {c |} {res} 37005    -15604.1   .0207567 {txt}{c |}
+288. {c |} {res} 17351   -15848.59   .0131255 {txt}{c |}
+304. {c |} {res}  8637   -23444.57   .0196911 {txt}{c |}
+382. {c |} {res} 62549    21036.75    .037554 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+398. {c |} {res} 53177    41882.45   .0149315 {txt}{c |}
+424. {c |} {res} 32829    22851.52   .0101494 {txt}{c |}
+464. {c |} {res} 42856       33013   .0283048 {txt}{c |}
+     {c BLC}{hline 8}{c -}{hline 11}{c -}{hline 10}{c BRC}
+
+{com}. * observations with high leverage and weight = cook's D > 4/n
+. sum residualcd1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 1}residualcd1 {c |}{res}       544   -5.37e-06     9397.21  -50983.43   135664.9
+{txt}
+{com}. sort residualcd1
+{txt}
+{com}. sort cookcd
+{txt}
+{com}. 
+. drop in 544/544
+{txt}(1 observation deleted)
+
+{com}. reg cd covid lstay age nas
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}     543
+{txt}{hline 13}{char +}{hline 30}           F(  4,   538) ={res}  286.02
+    {txt}   Model {char |} {res} 5.6992e+10     4  1.4248e+10           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 2.6801e+10   538  49815710.4           {txt}R-squared     = {res} 0.6802
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.6778
+    {txt}   Total {char |} {res} 8.3793e+10   542   154600172           {txt}Root MSE      = {res}   7058
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          cd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2} 4989.828{col 26}{space 2} 1271.238{col 37}{space 1}    3.93{col 46}{space 3}0.000{col 54}{space 4}  2492.63{col 67}{space 3} 7487.027
+{txt}{space 7}lstay {c |}{col 14}{res}{space 2}  1022.67{col 26}{space 2} 38.46494{col 37}{space 1}   26.59{col 46}{space 3}0.000{col 54}{space 4} 947.1105{col 67}{space 3}  1098.23
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-47.97109{col 26}{space 2} 17.34147{col 37}{space 1}   -2.77{col 46}{space 3}0.006{col 54}{space 4}-82.03639{col 67}{space 3}-13.90579
+{txt}{space 9}nas {c |}{col 14}{res}{space 2} 128.2439{col 26}{space 2} 28.33287{col 37}{space 1}    4.53{col 46}{space 3}0.000{col 54}{space 4} 72.58734{col 67}{space 3} 183.9006
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-6452.859{col 26}{space 2} 2218.078{col 37}{space 1}   -2.91{col 46}{space 3}0.004{col 54}{space 4}-10810.01{col 67}{space 3}-2095.704
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. estat hettest
+
+{txt}Breusch-Pagan / Cook-Weisberg test for heteroskedasticity 
+         Ho: Constant variance
+{p 9 20}Variables: fitted values of cd
+
+{col 10}chi2({res}1{txt}){col 23}={res}  1166.51
+{txt}{col 10}Prob > chi2{col 23}={res}   0.0000
+{txt}
+{com}. ovtest
+
+{txt}Ramsey RESET test using powers of the fitted values of cd
+       Ho:  model has no omitted variables
+                 F(3, 535) = {res}    11.04
+                  {txt}Prob > F =      {res}0.0000
+{txt}
+{com}. predict yhatcdoutlieroff
+{txt}(option xb assumed; fitted values)
+
+{com}. twoway lfit cd yhatcdoutlieroff|| scatter cd yhatcdoutlieroff, ytitle(cd) xtitle(yhat without outlier)
+{res}{txt}
+{com}. 
+. *we decided not to exclude any observations and to use other methods to improve the fit of the model.
+.         
+. clear
+{txt}
+{com}. use "C:\Users\cacia\Carreira Acadêmica\Artigos\2020\Covid\BCovidnas.dta", clear
+{txt}
+{com}. reg cd covid lstay age nas
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}     544
+{txt}{hline 13}{char +}{hline 30}           F(  4,   539) ={res}  265.68
+    {txt}   Model {char |} {res} 9.4542e+10     4  2.3635e+10           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 4.7951e+10   539  88962905.9           {txt}R-squared     = {res} 0.6635
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.6610
+    {txt}   Total {char |} {res} 1.4249e+11   543   262417208           {txt}Root MSE      = {res}   9432
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          cd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2} 5267.477{col 26}{space 2} 1698.728{col 37}{space 1}    3.10{col 46}{space 3}0.002{col 54}{space 4} 1930.539{col 67}{space 3} 8604.416
+{txt}{space 7}lstay {c |}{col 14}{res}{space 2} 1281.231{col 26}{space 2} 48.59052{col 37}{space 1}   26.37{col 46}{space 3}0.000{col 54}{space 4} 1185.781{col 67}{space 3} 1376.681
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-53.31677{col 26}{space 2} 23.17174{col 37}{space 1}   -2.30{col 46}{space 3}0.022{col 54}{space 4}-98.83476{col 67}{space 3}-7.798775
+{txt}{space 9}nas {c |}{col 14}{res}{space 2} 89.52701{col 26}{space 2} 37.77937{col 37}{space 1}    2.37{col 46}{space 3}0.018{col 54}{space 4} 15.31417{col 67}{space 3} 163.7399
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-4549.431{col 26}{space 2} 2961.564{col 37}{space 1}   -1.54{col 46}{space 3}0.125{col 54}{space 4}-10367.05{col 67}{space 3} 1268.192
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *Checking the effect if winsorize the variables at 1%
+. winsor lstay, gen(lstayw1) h(1)
+{txt}
+{com}. winsor age, gen(agew1) h(1)
+{txt}
+{com}. winsor nas, gen(nasw1) h(1)
+{txt}
+{com}. winsor cd, gen(cdw1) h(1)
+{txt}
+{com}. winsor ci, gen(ciw1) h(1)
+{txt}
+{com}. winsor ct, gen(ctw1) h(1)
+{txt}
+{com}.  
+. reg cdw1 covid lstayw1 agew1 nasw1
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}     544
+{txt}{hline 13}{char +}{hline 30}           F(  4,   539) ={res}  325.58
+    {txt}   Model {char |} {res} 6.7195e+10     4  1.6799e+10           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 2.7810e+10   539  51595963.2           {txt}R-squared     = {res} 0.7073
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.7051
+    {txt}   Total {char |} {res} 9.5005e+10   543   174962920           {txt}Root MSE      = {res}   7183
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        cdw1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2} 5195.117{col 26}{space 2} 1292.868{col 37}{space 1}    4.02{col 46}{space 3}0.000{col 54}{space 4}  2655.44{col 67}{space 3} 7734.794
+{txt}{space 5}lstayw1 {c |}{col 14}{res}{space 2} 1066.366{col 26}{space 2} 37.88939{col 37}{space 1}   28.14{col 46}{space 3}0.000{col 54}{space 4} 991.9373{col 67}{space 3} 1140.795
+{txt}{space 7}agew1 {c |}{col 14}{res}{space 2}-49.66365{col 26}{space 2} 17.67763{col 37}{space 1}   -2.81{col 46}{space 3}0.005{col 54}{space 4}-84.38915{col 67}{space 3}-14.93815
+{txt}{space 7}nasw1 {c |}{col 14}{res}{space 2} 127.2216{col 26}{space 2} 29.63223{col 37}{space 1}    4.29{col 46}{space 3}0.000{col 54}{space 4} 69.01279{col 67}{space 3} 185.4304
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-6457.504{col 26}{space 2} 2293.994{col 37}{space 1}   -2.81{col 46}{space 3}0.005{col 54}{space 4}-10963.77{col 67}{space 3} -1951.24
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict residualcdw, r
+{txt}
+{com}. predict yhatcdw1, xb
+{txt}
+{com}. twoway lfit cdw1 yhatcdw1|| scatter cdw1 yhatcdw1 , ytitle(cdw1) xtitle(yhat winsor)
+{res}{txt}
+{com}.  
+. hettest
+
+{txt}Breusch-Pagan / Cook-Weisberg test for heteroskedasticity 
+         Ho: Constant variance
+{p 9 20}Variables: fitted values of cdw1
+
+{col 10}chi2({res}1{txt}){col 23}={res}  1248.93
+{txt}{col 10}Prob > chi2{col 23}={res}   0.0000
+{txt}
+{com}. ovtest
+
+{txt}Ramsey RESET test using powers of the fitted values of cdw1
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}     5.52
+                  {txt}Prob > F =      {res}0.0010
+{txt}
+{com}. 
+. *checking if transforming variables into LN
+. gen lncd=ln(cd)
+{txt}
+{com}. gen lnage=ln(age)
+{txt}
+{com}. gen lnlstay=ln(lstay)
+{txt}
+{com}. gen lnnas=ln(nas)
+{txt}
+{com}. 
+. estimates clear
+{txt}
+{com}. reg lncd lnage lnlstay lnnas covid
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}     544
+{txt}{hline 13}{char +}{hline 30}           F(  4,   539) ={res}  397.37
+    {txt}   Model {char |} {res} 1156.17473     4  289.043683           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 392.064393   539  .727392195           {txt}R-squared     = {res} 0.7468
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.7449
+    {txt}   Total {char |} {res} 1548.23912   543  2.85126911           {txt}Root MSE      = {res} .85287
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lncd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}lnage {c |}{col 14}{res}{space 2}-.1117276{col 26}{space 2} .1197367{col 37}{space 1}   -0.93{col 46}{space 3}0.351{col 54}{space 4}-.3469354{col 67}{space 3} .1234801
+{txt}{space 5}lnlstay {c |}{col 14}{res}{space 2} 1.212011{col 26}{space 2} .0391908{col 37}{space 1}   30.93{col 46}{space 3}0.000{col 54}{space 4} 1.135026{col 67}{space 3} 1.288996
+{txt}{space 7}lnnas {c |}{col 14}{res}{space 2} 2.327546{col 26}{space 2}  .242378{col 37}{space 1}    9.60{col 46}{space 3}0.000{col 54}{space 4} 1.851425{col 67}{space 3} 2.803668
+{txt}{space 7}covid {c |}{col 14}{res}{space 2}  .306272{col 26}{space 2}  .148499{col 37}{space 1}    2.06{col 46}{space 3}0.040{col 54}{space 4} .0145642{col 67}{space 3} .5979798
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.599971{col 26}{space 2} 1.087284{col 37}{space 1}   -3.31{col 46}{space 3}0.001{col 54}{space 4}-5.735805{col 67}{space 3}-1.464137
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. estat hettest
+
+{txt}Breusch-Pagan / Cook-Weisberg test for heteroskedasticity 
+         Ho: Constant variance
+{p 9 20}Variables: fitted values of lncd
+
+{col 10}chi2({res}1{txt}){col 23}={res}    14.06
+{txt}{col 10}Prob > chi2{col 23}={res}   0.0002
+{txt}
+{com}. ovtest
+
+{txt}Ramsey RESET test using powers of the fitted values of lncd
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}     0.66
+                  {txt}Prob > F =      {res}0.5775
+{txt}
+{com}. 
+. *For better model adjustment and heteroscedasticity correction, we will use in robust matrices
+. estimates clear
+{txt}
+{com}. reg lncd lnage lnlstay lnnas covid,r
+
+{txt}Linear regression                                      Number of obs ={res}     544
+                                                       {txt}F(  4,   539) ={res}  623.06
+                                                       {txt}Prob > F      = {res} 0.0000
+                                                       {txt}R-squared     = {res} 0.7468
+                                                       {txt}Root MSE      = {res} .85287
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        lncd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}lnage {c |}{col 14}{res}{space 2}-.1117276{col 26}{space 2} .1291525{col 37}{space 1}   -0.87{col 46}{space 3}0.387{col 54}{space 4}-.3654315{col 67}{space 3} .1419763
+{txt}{space 5}lnlstay {c |}{col 14}{res}{space 2} 1.212011{col 26}{space 2} .0364659{col 37}{space 1}   33.24{col 46}{space 3}0.000{col 54}{space 4} 1.140378{col 67}{space 3} 1.283644
+{txt}{space 7}lnnas {c |}{col 14}{res}{space 2} 2.327546{col 26}{space 2} .2350213{col 37}{space 1}    9.90{col 46}{space 3}0.000{col 54}{space 4} 1.865876{col 67}{space 3} 2.789216
+{txt}{space 7}covid {c |}{col 14}{res}{space 2}  .306272{col 26}{space 2}  .105314{col 37}{space 1}    2.91{col 46}{space 3}0.004{col 54}{space 4} .0993959{col 67}{space 3} .5131481
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.599971{col 26}{space 2} 1.104926{col 37}{space 1}   -3.26{col 46}{space 3}0.001{col 54}{space 4}-5.770459{col 67}{space 3}-1.429483
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ovtest
+
+{txt}Ramsey RESET test using powers of the fitted values of lncd
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}     0.66
+                  {txt}Prob > F =      {res}0.5775
+{txt}
+{com}. predict residuoslncdr, r
+{txt}
+{com}. predict yhatlncdr, xb
+{txt}
+{com}. twoway lfit lncd yhatlncdr|| scatter lncd yhatlncdr, ytitle(Direct Costs) xtitle(yhat in LN and Robust)
+{res}{txt}
+{com}. histogram residuoslncdr, kdensity normal
+{txt}(bin={res}23{txt}, start={res}-2.4790702{txt}, width={res}.21882031{txt})
+{res}{txt}
+{com}. 
+. *No observation excluded, we do not winsorized, just we apply robust White matrices with logarithmic scale variables.
+. 
+. *OLS#2: Dependent variable = Indirect Costs
+. estimates clear
+{txt}
+{com}. reg ci covid lstay age nas
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}     544
+{txt}{hline 13}{char +}{hline 30}           F(  4,   539) ={res} 4535.17
+    {txt}   Model {char |} {res} 4.8433e+11     4  1.2108e+11           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 1.4390e+10   539  26698373.1           {txt}R-squared     = {res} 0.9711
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.9709
+    {txt}   Total {char |} {res} 4.9872e+11   543   918448241           {txt}Root MSE      = {res}   5167
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          ci{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2} 5976.921{col 26}{space 2} 930.5972{col 37}{space 1}    6.42{col 46}{space 3}0.000{col 54}{space 4} 4148.879{col 67}{space 3} 7804.962
+{txt}{space 7}lstay {c |}{col 14}{res}{space 2} 3045.051{col 26}{space 2} 26.61886{col 37}{space 1}  114.39{col 46}{space 3}0.000{col 54}{space 4} 2992.762{col 67}{space 3} 3097.341
+{txt}{space 9}age {c |}{col 14}{res}{space 2}  15.2359{col 26}{space 2} 12.69395{col 37}{space 1}    1.20{col 46}{space 3}0.231{col 54}{space 4}-9.699767{col 67}{space 3} 40.17157
+{txt}{space 9}nas {c |}{col 14}{res}{space 2} 27.78392{col 26}{space 2}  20.6963{col 37}{space 1}    1.34{col 46}{space 3}0.180{col 54}{space 4}-12.87137{col 67}{space 3}  68.4392
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-959.9033{col 26}{space 2} 1622.404{col 37}{space 1}   -0.59{col 46}{space 3}0.554{col 54}{space 4}-4146.914{col 67}{space 3} 2227.107
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict residualci, r
+{txt}
+{com}. predict yhatci, xb
+{txt}
+{com}. twoway lfit ci yhatci|| scatter ci yhatci, ytitle(Custos Indiretos) xtitle(yhat)
+{res}{txt}
+{com}. histogram residualci, kdensity normal
+{txt}(bin={res}23{txt}, start={res}-19412.137{txt}, width={res}3275.0399{txt})
+{res}{txt}
+{com}. 
+. * VIF Test: Checking multicollinearity in the model
+. vif
+
+{txt}    Variable {c |}       VIF       1/VIF  
+{hline 13}{c +}{hline 22}
+{space 7}lstay {c |} {res}     1.31    0.760713
+{txt}{space 7}covid {c |} {res}     1.20    0.831897
+{txt}{space 9}nas {c |} {res}     1.13    0.887614
+{txt}{space 9}age {c |} {res}     1.02    0.980370
+{txt}{hline 13}{c +}{hline 22}
+    Mean VIF {c |} {res}     1.17
+{txt}
+{com}.   
+. * Breusch-Pagan / Cook-Weisberg test for heteroskedasticity
+. estat hettest
+
+{txt}Breusch-Pagan / Cook-Weisberg test for heteroskedasticity 
+         Ho: Constant variance
+{p 9 20}Variables: fitted values of ci
+
+{col 10}chi2({res}1{txt}){col 23}={res}  1274.72
+{txt}{col 10}Prob > chi2{col 23}={res}   0.0000
+{txt}
+{com}.  
+. * Ramsey RESET test using powers of the fitted values of indirect costs
+. estat ovtest 
+
+{txt}Ramsey RESET test using powers of the fitted values of ci
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}    13.35
+                  {txt}Prob > F =      {res}0.0000
+{txt}
+{com}. 
+. * Analyzing Outliers
+. lvr2plot, mlabel (covid)
+{res}{txt}
+{com}. predict residualci2 if e(sample), cooksd
+{txt}
+{com}. predict cookci if e(sample), cooksd
+{txt}
+{com}. predict eci if e(sample), resid
+{txt}
+{com}. list ci eci cookci if cookci>4/544
+{txt}
+     {c TLC}{hline 8}{c -}{hline 11}{c -}{hline 10}{c TRC}
+     {c |} {res}    ci         eci     cookci {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+  2. {c |} {res}181724    -6435.02   .0300722 {txt}{c |}
+ 83. {c |} {res} 65659    9173.002   .0087984 {txt}{c |}
+100. {c |} {res}181694     8513.12   .0334249 {txt}{c |}
+101. {c |} {res}103008    12390.11    .019799 {txt}{c |}
+130. {c |} {res}117656   -6142.617   .0108783 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+132. {c |} {res}163113    41576.11   .4969352 {txt}{c |}
+141. {c |} {res}152295   -8594.538   .0293916 {txt}{c |}
+151. {c |} {res}167793    55913.78   .7836145 {txt}{c |}
+152. {c |} {res} 85895    22769.77   .1044602 {txt}{c |}
+159. {c |} {res} 88077    9619.856   .0195394 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+160. {c |} {res}121119   -8585.998   .0230408 {txt}{c |}
+162. {c |} {res} 78863    -11930.3   .0310653 {txt}{c |}
+163. {c |} {res}256464   -7765.489    .077428 {txt}{c |}
+169. {c |} {res}100865   -8565.427     .01481 {txt}{c |}
+176. {c |} {res} 73230   -11732.21   .0328448 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+177. {c |} {res}  5633    -8200.51   .0191331 {txt}{c |}
+184. {c |} {res}150478    38581.75   .3575902 {txt}{c |}
+191. {c |} {res}165672   -19412.14   .2015808 {txt}{c |}
+211. {c |} {res}195886    -19293.1   .4059545 {txt}{c |}
+227. {c |} {res} 67596   -10732.08   .0240949 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+252. {c |} {res}133869    6447.886   .0118097 {txt}{c |}
+258. {c |} {res} 47566    17630.46   .0095718 {txt}{c |}
+304. {c |} {res} 97350    12886.75   .0198242 {txt}{c |}
+315. {c |} {res}  8450   -5610.252   .0081614 {txt}{c |}
+347. {c |} {res} 69751   -12235.18   .0408735 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+371. {c |} {res} 13950   -6517.621    .011504 {txt}{c |}
+372. {c |} {res} 11160   -4701.986     .01555 {txt}{c |}
+382. {c |} {res} 81024   -13292.05   .0499583 {txt}{c |}
+383. {c |} {res} 19530   -7495.566    .016336 {txt}{c |}
+435. {c |} {res} 11160   -8673.089   .0193897 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+487. {c |} {res} 52512    20000.39   .0955339 {txt}{c |}
+491. {c |} {res}  7257   -6503.019    .012266 {txt}{c |}
+494. {c |} {res} 35749    12468.45   .0384054 {txt}{c |}
+519. {c |} {res} 14223   -8515.329   .0199925 {txt}{c |}
+521. {c |} {res} 15218    -7842.08   .0155444 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+522. {c |} {res}  7369   -6312.137   .0111492 {txt}{c |}
+     {c BLC}{hline 8}{c -}{hline 11}{c -}{hline 10}{c BRC}
+
+{com}. sum residualci2
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 1}residualci2 {c |}{res}       544    .0061057    .0473318   1.77e-09   .7836145
+{txt}
+{com}. sort residualci2
+{txt}
+{com}. sort cookci
+{txt}
+{com}. 
+. *We will adapt the model in LN variables
+. gen lnci=ln(ci)
+{txt}
+{com}. 
+. *For better model adjustment and heteroscedasticity correction, we will use in robust matrices
+. estimates clear
+{txt}
+{com}. reg lnci covid lnage lnlstay lnnas, r
+
+{txt}Linear regression                                      Number of obs ={res}     544
+                                                       {txt}F(  4,   539) ={res} 1823.30
+                                                       {txt}Prob > F      = {res} 0.0000
+                                                       {txt}R-squared     = {res} 0.9104
+                                                       {txt}Root MSE      = {res} .27858
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        lnci{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2}  .183948{col 26}{space 2} .0473021{col 37}{space 1}    3.89{col 46}{space 3}0.000{col 54}{space 4} .0910289{col 67}{space 3} .2768671
+{txt}{space 7}lnage {c |}{col 14}{res}{space 2} .0223527{col 26}{space 2} .0374204{col 37}{space 1}    0.60{col 46}{space 3}0.551{col 54}{space 4}-.0511549{col 67}{space 3} .0958604
+{txt}{space 5}lnlstay {c |}{col 14}{res}{space 2} .8203875{col 26}{space 2} .0117572{col 37}{space 1}   69.78{col 46}{space 3}0.000{col 54}{space 4} .7972919{col 67}{space 3} .8434831
+{txt}{space 7}lnnas {c |}{col 14}{res}{space 2} .1969976{col 26}{space 2} .0863931{col 37}{space 1}    2.28{col 46}{space 3}0.023{col 54}{space 4} .0272892{col 67}{space 3} .3667061
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 7.533405{col 26}{space 2} .3799502{col 37}{space 1}   19.83{col 46}{space 3}0.000{col 54}{space 4}  6.78704{col 67}{space 3} 8.279769
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ovtest
+
+{txt}Ramsey RESET test using powers of the fitted values of lnci
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}    17.36
+                  {txt}Prob > F =      {res}0.0000
+{txt}
+{com}. predict residuoslncir, r
+{txt}
+{com}. predict yhatlncir, xb
+{txt}
+{com}. twoway lfit lnci yhatlncir|| scatter lnci yhatlncir, ytitle(Indirect Costs) xtitle(yhat in LN and Robust)
+{res}{txt}
+{com}. histogram residuoslncir, kdensity normal
+{txt}(bin={res}23{txt}, start={res}-1.6665257{txt}, width={res}.11048928{txt})
+{res}{txt}
+{com}. 
+. 
+. *OLS#3: Dependent variable Total Costs
+. estimates clear
+{txt}
+{com}. reg ct covid lstay age nas
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}     544
+{txt}{hline 13}{char +}{hline 30}           F(  4,   539) ={res} 2148.14
+    {txt}   Model {char |} {res} 1.0042e+12     4  2.5105e+11           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 6.2992e+10   539   116868763           {txt}R-squared     = {res} 0.9410
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.9405
+    {txt}   Total {char |} {res} 1.0672e+12   543  1.9654e+09           {txt}Root MSE      = {res}  10811
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          ct{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2} 11244.41{col 26}{space 2} 1947.012{col 37}{space 1}    5.78{col 46}{space 3}0.000{col 54}{space 4} 7419.749{col 67}{space 3} 15069.07
+{txt}{space 7}lstay {c |}{col 14}{res}{space 2} 4326.279{col 26}{space 2} 55.69245{col 37}{space 1}   77.68{col 46}{space 3}0.000{col 54}{space 4} 4216.878{col 67}{space 3}  4435.68
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-38.08016{col 26}{space 2}  26.5585{col 37}{space 1}   -1.43{col 46}{space 3}0.152{col 54}{space 4}  -90.251{col 67}{space 3} 14.09068
+{txt}{space 9}nas {c |}{col 14}{res}{space 2} 117.3145{col 26}{space 2} 43.30115{col 37}{space 1}    2.71{col 46}{space 3}0.007{col 54}{space 4} 32.25482{col 67}{space 3} 202.3742
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-5509.542{col 26}{space 2} 3394.423{col 37}{space 1}   -1.62{col 46}{space 3}0.105{col 54}{space 4}-12177.46{col 67}{space 3} 1158.377
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict residualct, r
+{txt}
+{com}. predict yhatct, xb
+{txt}
+{com}. twoway lfit ct yhatct|| scatter ct yhatct, ytitle(Total Costs) xtitle(yhat)
+{res}{txt}
+{com}. histogram residualct, kdensity normal
+{txt}(bin={res}23{txt}, start={res}-70276.367{txt}, width={res}8616.3454{txt})
+{res}{txt}
+{com}. 
+. * VIF Test: Checking multicollinearity in the model
+. vif
+
+{txt}    Variable {c |}       VIF       1/VIF  
+{hline 13}{c +}{hline 22}
+{space 7}lstay {c |} {res}     1.31    0.760713
+{txt}{space 7}covid {c |} {res}     1.20    0.831897
+{txt}{space 9}nas {c |} {res}     1.13    0.887614
+{txt}{space 9}age {c |} {res}     1.02    0.980370
+{txt}{hline 13}{c +}{hline 22}
+    Mean VIF {c |} {res}     1.17
+{txt}
+{com}.           
+. * Breusch-Pagan / Cook-Weisberg test for heteroskedasticity
+. estat hettest
+
+{txt}Breusch-Pagan / Cook-Weisberg test for heteroskedasticity 
+         Ho: Constant variance
+{p 9 20}Variables: fitted values of ct
+
+{col 10}chi2({res}1{txt}){col 23}={res}  3854.05
+{txt}{col 10}Prob > chi2{col 23}={res}   0.0000
+{txt}
+{com}.          
+. * Ramsey RESET test using powers of the fitted values of indirect costs
+. estat ovtest 
+
+{txt}Ramsey RESET test using powers of the fitted values of ct
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}    69.41
+                  {txt}Prob > F =      {res}0.0000
+{txt}
+{com}. 
+. * Analyzing Outliers
+. lvr2plot, mlabel (covid)
+{res}{txt}
+{com}. predict residualct1 if e(sample), resid
+{txt}
+{com}. predict cookct if e(sample) , cooksd
+{txt}
+{com}. predict ect if e(sample), resid
+{txt}
+{com}. list ct ect cookct if cookct>4/544
+{txt}
+     {c TLC}{hline 8}{c -}{hline 11}{c -}{hline 10}{c TRC}
+     {c |} {res}    ct         ect     cookct {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+253. {c |} {res} 83868    40266.78   .0105062 {txt}{c |}
+287. {c |} {res}158867   -19495.04   .0237305 {txt}{c |}
+357. {c |} {res}232300   -34637.12   .1566345 {txt}{c |}
+399. {c |} {res}101495    63473.45   .0943766 {txt}{c |}
+418. {c |} {res} 77112   -22482.73   .0096109 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+454. {c |} {res} 63144    29959.14   .0177443 {txt}{c |}
+487. {c |} {res}105319    61378.13   .0421648 {txt}{c |}
+489. {c |} {res} 20945   -12168.48   .0097089 {txt}{c |}
+494. {c |} {res} 17539   -11501.28    .007551 {txt}{c |}
+500. {c |} {res} 92682   -21250.15   .0179626 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+510. {c |} {res} 97175    17577.29   .0073803 {txt}{c |}
+512. {c |} {res}150560   -25161.03   .0416962 {txt}{c |}
+516. {c |} {res} 10839    -10551.1   .0073766 {txt}{c |}
+517. {c |} {res}117629   -35371.16   .0576953 {txt}{c |}
+518. {c |} {res} 17642   -16501.53   .0157234 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+519. {c |} {res} 19192   -6774.728   .0073746 {txt}{c |}
+520. {c |} {res} 23085   -14765.11    .014481 {txt}{c |}
+521. {c |} {res}  6371   -15022.17   .0146675 {txt}{c |}
+522. {c |} {res} 13226   -15925.44   .0149346 {txt}{c |}
+524. {c |} {res}148624    21720.35   .0138999 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+526. {c |} {res} 17324   -16689.92   .0175452 {txt}{c |}
+527. {c |} {res}162600   -23353.31   .0389404 {txt}{c |}
+528. {c |} {res} 81109   -29765.14   .0423409 {txt}{c |}
+529. {c |} {res}263660    33290.39     .10074 {txt}{c |}
+530. {c |} {res}245512   -19023.67     .06004 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+531. {c |} {res}114315   -15579.75   .0121026 {txt}{c |}
+532. {c |} {res}146236    25641.17     .03584 {txt}{c |}
+533. {c |} {res}277444    29300.01   .0904511 {txt}{c |}
+535. {c |} {res}102484   -16226.64   .0164235 {txt}{c |}
+537. {c |} {res}504348    127899.6   4.798275 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+538. {c |} {res} 64348    16709.07   .0152325 {txt}{c |}
+539. {c |} {res}106965    17217.99   .0136454 {txt}{c |}
+540. {c |} {res}223911   -39242.19   .1881894 {txt}{c |}
+541. {c |} {res}225747    66157.95   .2401995 {txt}{c |}
+542. {c |} {res}233412   -70276.37    1.23049 {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 11}{c -}{hline 10}{c RT}
+543. {c |} {res}200015     25722.4   .0434532 {txt}{c |}
+544. {c |} {res}191255    32557.16   .0606938 {txt}{c |}
+     {c BLC}{hline 8}{c -}{hline 11}{c -}{hline 10}{c BRC}
+
+{com}. sum residualct1
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 1}residualct1 {c |}{res}       544   -.0000175    10770.69  -70276.37   127899.6
+{txt}
+{com}. sort residualct1
+{txt}
+{com}. sort cookct
+{txt}
+{com}. predict yhatct1
+{txt}(option xb assumed; fitted values)
+
+{com}. twoway (scatter ct yhatct1) (lfit ct yhatct1)
+{res}{txt}
+{com}. 
+. reg ctw1 covid agew1 lstayw1 nasw1
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}     544
+{txt}{hline 13}{char +}{hline 30}           F(  4,   539) ={res} 2589.60
+    {txt}   Model {char |} {res} 8.5688e+11     4  2.1422e+11           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 4.4588e+10   539  82722744.4           {txt}R-squared     = {res} 0.9505
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.9502
+    {txt}   Total {char |} {res} 9.0146e+11   543  1.6602e+09           {txt}Root MSE      = {res} 9095.2
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        ctw1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2} 10823.63{col 26}{space 2} 1637.038{col 37}{space 1}    6.61{col 46}{space 3}0.000{col 54}{space 4} 7607.876{col 67}{space 3} 14039.39
+{txt}{space 7}agew1 {c |}{col 14}{res}{space 2}-33.52401{col 26}{space 2} 22.38354{col 37}{space 1}   -1.50{col 46}{space 3}0.135{col 54}{space 4}-77.49367{col 67}{space 3} 10.44565
+{txt}{space 5}lstayw1 {c |}{col 14}{res}{space 2} 4048.431{col 26}{space 2}  47.9758{col 37}{space 1}   84.38{col 46}{space 3}0.000{col 54}{space 4} 3954.189{col 67}{space 3} 4142.674
+{txt}{space 7}nasw1 {c |}{col 14}{res}{space 2} 166.3689{col 26}{space 2} 37.52053{col 37}{space 1}    4.43{col 46}{space 3}0.000{col 54}{space 4} 92.66455{col 67}{space 3} 240.0733
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-7986.896{col 26}{space 2}  2904.67{col 37}{space 1}   -2.75{col 46}{space 3}0.006{col 54}{space 4}-13692.76{col 67}{space 3}-2281.034
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. hettest
+
+{txt}Breusch-Pagan / Cook-Weisberg test for heteroskedasticity 
+         Ho: Constant variance
+{p 9 20}Variables: fitted values of ctw1
+
+{col 10}chi2({res}1{txt}){col 23}={res}  1176.65
+{txt}{col 10}Prob > chi2{col 23}={res}   0.0000
+{txt}
+{com}. ovtest
+
+{txt}Ramsey RESET test using powers of the fitted values of ctw1
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}    19.19
+                  {txt}Prob > F =      {res}0.0000
+{txt}
+{com}. 
+. **We will adapt the model in LN variables
+. gen lnct=ln(ct)
+{txt}
+{com}. 
+. reg lnct covid lnage lnlstay lnnas
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}     544
+{txt}{hline 13}{char +}{hline 30}           F(  4,   539) ={res} 1433.09
+    {txt}   Model {char |} {res} 496.642668     4  124.160667           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 46.6980994   539  .086638403           {txt}R-squared     = {res} 0.9141
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.9134
+    {txt}   Total {char |} {res} 543.340767   543  1.00062756           {txt}Root MSE      = {res} .29434
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lnct{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2} .1960574{col 26}{space 2} .0512501{col 37}{space 1}    3.83{col 46}{space 3}0.000{col 54}{space 4}  .095383{col 67}{space 3} .2967318
+{txt}{space 7}lnage {c |}{col 14}{res}{space 2}-.0365749{col 26}{space 2} .0413236{col 37}{space 1}   -0.89{col 46}{space 3}0.377{col 54}{space 4}  -.11775{col 67}{space 3} .0446001
+{txt}{space 5}lnlstay {c |}{col 14}{res}{space 2} .8741183{col 26}{space 2} .0135255{col 37}{space 1}   64.63{col 46}{space 3}0.000{col 54}{space 4} .8475491{col 67}{space 3} .9006875
+{txt}{space 7}lnnas {c |}{col 14}{res}{space 2} .4566931{col 26}{space 2} .0836496{col 37}{space 1}    5.46{col 46}{space 3}0.000{col 54}{space 4} .2923739{col 67}{space 3} .6210124
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 6.773912{col 26}{space 2} .3752442{col 37}{space 1}   18.05{col 46}{space 3}0.000{col 54}{space 4} 6.036792{col 67}{space 3} 7.511032
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ovtest
+
+{txt}Ramsey RESET test using powers of the fitted values of lnct
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}    15.01
+                  {txt}Prob > F =      {res}0.0000
+{txt}
+{com}. hettest
+
+{txt}Breusch-Pagan / Cook-Weisberg test for heteroskedasticity 
+         Ho: Constant variance
+{p 9 20}Variables: fitted values of lnct
+
+{col 10}chi2({res}1{txt}){col 23}={res}    10.13
+{txt}{col 10}Prob > chi2{col 23}={res}   0.0015
+{txt}
+{com}. 
+. *For better model adjustment and heteroscedasticity correction, we will use in robust matrices
+. estimates clear
+{txt}
+{com}. reg lnct covid lnage lnlstay lnnas, r
+
+{txt}Linear regression                                      Number of obs ={res}     544
+                                                       {txt}F(  4,   539) ={res} 1928.01
+                                                       {txt}Prob > F      = {res} 0.0000
+                                                       {txt}R-squared     = {res} 0.9141
+                                                       {txt}Root MSE      = {res} .29434
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        lnct{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}covid {c |}{col 14}{res}{space 2} .1960574{col 26}{space 2} .0488918{col 37}{space 1}    4.01{col 46}{space 3}0.000{col 54}{space 4} .1000156{col 67}{space 3} .2920992
+{txt}{space 7}lnage {c |}{col 14}{res}{space 2}-.0365749{col 26}{space 2} .0439264{col 37}{space 1}   -0.83{col 46}{space 3}0.405{col 54}{space 4}-.1228628{col 67}{space 3}  .049713
+{txt}{space 5}lnlstay {c |}{col 14}{res}{space 2} .8741183{col 26}{space 2}  .012448{col 37}{space 1}   70.22{col 46}{space 3}0.000{col 54}{space 4} .8496657{col 67}{space 3} .8985709
+{txt}{space 7}lnnas {c |}{col 14}{res}{space 2} .4566931{col 26}{space 2} .0889169{col 37}{space 1}    5.14{col 46}{space 3}0.000{col 54}{space 4}  .282027{col 67}{space 3} .6313593
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 6.773912{col 26}{space 2} .3958661{col 37}{space 1}   17.11{col 46}{space 3}0.000{col 54}{space 4} 5.996282{col 67}{space 3} 7.551541
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ovtest
+
+{txt}Ramsey RESET test using powers of the fitted values of lnct
+       Ho:  model has no omitted variables
+                 F(3, 536) = {res}    15.01
+                  {txt}Prob > F =      {res}0.0000
+{txt}
+{com}. predict residuoslnctr, r
+{txt}
+{com}. predict yhatlnctr, xb
+{txt}
+{com}. twoway lfit lnct yhatlnctr|| scatter lnct yhatlnctr, ytitle(Total Costs) xtitle(yhat in LN and Robust)
+{res}{txt}
+{com}. histogram residuoslnctr, kdensity normal
+{txt}(bin={res}23{txt}, start={res}-1.5645895{txt}, width={res}.11231732{txt})
+{res}{txt}
+{com}. 
+. estimates clear
+{txt}
+{com}. clear
+{txt}
+{com}. 
+. *Applying the methodology just in covid patient
+. use "C:\Users\cacia\Carreira Acadêmica\Artigos\2020\Covid\bcovidnas1.dta", clear
+{txt}
+{com}. 
+. gen lnlstay=ln(lstay)
+{txt}
+{com}. gen lnage=ln(age)
+{txt}
+{com}. gen lnnas=ln(nas)
+{txt}
+{com}. gen lncd=ln(cd)
+{txt}
+{com}. gen lnci=ln(ci)
+{txt}
+{com}. gen lnct=ln(ct)
+{txt}
+{com}. 
+. estimates clear
+{txt}
+{com}. reg lncd lnlstay lnage lnnas, r
+
+{txt}Linear regression                                      Number of obs ={res}      40
+                                                       {txt}F(  3,    36) ={res}   94.50
+                                                       {txt}Prob > F      = {res} 0.0000
+                                                       {txt}R-squared     = {res} 0.9160
+                                                       {txt}Root MSE      = {res} .52721
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        lncd{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}lnlstay {c |}{col 14}{res}{space 2} 1.105543{col 26}{space 2} .0854365{col 37}{space 1}   12.94{col 46}{space 3}0.000{col 54}{space 4} .9322699{col 67}{space 3} 1.278816
+{txt}{space 7}lnage {c |}{col 14}{res}{space 2} .0382325{col 26}{space 2} .3951435{col 37}{space 1}    0.10{col 46}{space 3}0.923{col 54}{space 4}-.7631557{col 67}{space 3} .8396207
+{txt}{space 7}lnnas {c |}{col 14}{res}{space 2} 2.067058{col 26}{space 2} .8500955{col 37}{space 1}    2.43{col 46}{space 3}0.020{col 54}{space 4}  .342984{col 67}{space 3} 3.791131
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-2.552595{col 26}{space 2} 3.645089{col 37}{space 1}   -0.70{col 46}{space 3}0.488{col 54}{space 4}-9.945178{col 67}{space 3} 4.839989
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict residuoslncdcovid, r
+{txt}
+{com}. predict yhatlncdcovid, xb
+{txt}
+{com}. twoway lfit lncd yhatlncdcovid|| scatter lncd yhatlncdcovid, ytitle(Direct Costs) xtitle(yhat in LN and Robust)
+{res}{txt}
+{com}. histogram residuoslncdcovid, kdensity  normal
+{txt}(bin={res}6{txt}, start={res}-.7252965{txt}, width={res}.38095154{txt})
+{res}{txt}
+{com}. 
+. estimates clear
+{txt}
+{com}. reg lnci lnlstay lnage lnnas, r
+
+{txt}Linear regression                                      Number of obs ={res}      40
+                                                       {txt}F(  3,    36) ={res}  221.66
+                                                       {txt}Prob > F      = {res} 0.0000
+                                                       {txt}R-squared     = {res} 0.9521
+                                                       {txt}Root MSE      = {res} .26646
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        lnci{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}lnlstay {c |}{col 14}{res}{space 2} .9000273{col 26}{space 2} .0398257{col 37}{space 1}   22.60{col 46}{space 3}0.000{col 54}{space 4} .8192569{col 67}{space 3} .9807976
+{txt}{space 7}lnage {c |}{col 14}{res}{space 2} .2160464{col 26}{space 2} .1696745{col 37}{space 1}    1.27{col 46}{space 3}0.211{col 54}{space 4}-.1280694{col 67}{space 3} .5601622
+{txt}{space 7}lnnas {c |}{col 14}{res}{space 2}-.3917968{col 26}{space 2} .3469672{col 37}{space 1}   -1.13{col 46}{space 3}0.266{col 54}{space 4}-1.095479{col 67}{space 3} .3118852
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 9.269518{col 26}{space 2} 1.254977{col 37}{space 1}    7.39{col 46}{space 3}0.000{col 54}{space 4} 6.724306{col 67}{space 3} 11.81473
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict residuoslncicovid, r
+{txt}
+{com}. predict yhatlncicovid, xb
+{txt}
+{com}. twoway lfit lnci yhatlncicovid|| scatter lnci yhatlncicovid, ytitle(Indirect Costs) xtitle(yhat in LN and Robust)
+{res}{txt}
+{com}. histogram residuoslncicovid, kdensity  normal
+{txt}(bin={res}6{txt}, start={res}-.38821346{txt}, width={res}.17950305{txt})
+{res}{txt}
+{com}. 
+. estimates clear
+{txt}
+{com}. reg lnct lnlstay lnage lnnas, r
+
+{txt}Linear regression                                      Number of obs ={res}      40
+                                                       {txt}F(  3,    36) ={res}  206.64
+                                                       {txt}Prob > F      = {res} 0.0000
+                                                       {txt}R-squared     = {res} 0.9585
+                                                       {txt}Root MSE      = {res} .26985
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        lnct{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}lnlstay {c |}{col 14}{res}{space 2} .9427626{col 26}{space 2} .0444255{col 37}{space 1}   21.22{col 46}{space 3}0.000{col 54}{space 4} .8526636{col 67}{space 3} 1.032862
+{txt}{space 7}lnage {c |}{col 14}{res}{space 2} .1788079{col 26}{space 2} .1757109{col 37}{space 1}    1.02{col 46}{space 3}0.316{col 54}{space 4}-.1775503{col 67}{space 3} .5351661
+{txt}{space 7}lnnas {c |}{col 14}{res}{space 2} .0892817{col 26}{space 2} .3591411{col 37}{space 1}    0.25{col 46}{space 3}0.805{col 54}{space 4}-.6390903{col 67}{space 3} .8176537
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 7.500072{col 26}{space 2} 1.418867{col 37}{space 1}    5.29{col 46}{space 3}0.000{col 54}{space 4} 4.622475{col 67}{space 3} 10.37767
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict residuoslnctcovid
+{txt}(option xb assumed; fitted values)
+
+{com}. predict yhatlnctcovid
+{txt}(option xb assumed; fitted values)
+
+{com}. twoway lfit lnct yhatlnctcovid|| scatter lnct yhatlnctcovid, ytitle(Total Costs) xtitle(yhat in LN and Robust)
+{res}{txt}
+{com}. histogram residuoslnctcovid, kdensity  normal
+{txt}(bin={res}6{txt}, start={res}8.5467472{txt}, width={res}.7144742{txt})
+{res}{txt}
+{com}.          
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\cacia\Carreira Acadêmica\Artigos\2020\Covid\LogCovidnas.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 7 Oct 2020, 22:01:30
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
